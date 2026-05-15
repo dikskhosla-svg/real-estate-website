@@ -1,4 +1,4 @@
-export default function SurinderSinghRajputRealEstate() {
+export default function SurinderSingputRealEstate() {
   const featuredProperties = [
     {
       title: "Luxury Family Home",
@@ -25,16 +25,24 @@ export default function SurinderSinghRajputRealEstate() {
 
   return (
     <div className="min-h-screen bg-white text-gray-800 font-sans">
-      {/* Header */}
       <header className="bg-gradient-to-r from-black to-gray-900 text-white shadow-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div>
-            <h1 className="text-2xl md:text-3xl font-bold tracking-wide">
-              Surinder Singh Rajput Real Estate
-            </h1>
-            <p className="text-sm text-gray-300 mt-1">
-              Trusted Real Estate Services Across Ontario
-            </p>
+          <div className="flex items-center gap-5">
+            <img
+              src="/logo.png"
+              alt="Logo"
+              className="w-32 h-32 object-contain"
+            />
+
+            <div>
+              <h1 className="text-2xl md:text-4xl font-bold tracking-wide text-white">
+                Surinder Singh Rajput Real Estate
+              </h1>
+
+              <p className="text-sm text-gray-300 mt-1">
+                Trusted Real Estate Services Across Ontario
+              </p>
+            </div>
           </div>
 
           <nav className="hidden md:flex gap-8 text-sm font-medium">
@@ -54,7 +62,6 @@ export default function SurinderSinghRajputRealEstate() {
         </div>
       </header>
 
-      {/* Hero Section */}
       <section
         id="home"
         className="relative h-[85vh] flex items-center justify-center text-center"
@@ -94,7 +101,6 @@ export default function SurinderSinghRajputRealEstate() {
         </div>
       </section>
 
-      {/* Featured Properties */}
       <section id="properties" className="py-20 bg-gray-100">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-14">
@@ -136,7 +142,6 @@ export default function SurinderSinghRajputRealEstate() {
         </div>
       </section>
 
-      {/* About Section */}
       <section id="about" className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
           <div>
@@ -155,72 +160,35 @@ export default function SurinderSinghRajputRealEstate() {
             <p className="text-lg text-gray-600 leading-relaxed">
               Surinder Singh Rajput Real Estate helps families and investors
               discover premium homes and smart property opportunities across
-              Ontario. Whether you are buying your first home or selling a
-              luxury property, you will receive professional guidance at every
-              step.
+              Ontario.
             </p>
-
-            <div className="mt-8 grid grid-cols-2 gap-6">
-              <div className="bg-gray-100 rounded-2xl p-6 shadow-sm">
-                <h4 className="text-3xl font-bold">10+</h4>
-                <p className="text-gray-600 mt-2">Years Experience</p>
-              </div>
-
-              <div className="bg-gray-100 rounded-2xl p-6 shadow-sm">
-                <h4 className="text-3xl font-bold">500+</h4>
-                <p className="text-gray-600 mt-2">Happy Clients</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Contact Section */}
       <section id="contact" className="py-20 bg-black text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-4xl font-bold">Get In Touch</h3>
-          <p className="text-gray-300 mt-4 text-lg">
-            Ready to buy or sell your property? Contact us today.
-          </p>
-
-          <div className="mt-10 grid md:grid-cols-3 gap-6">
-            <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
-              <h4 className="text-xl font-semibold">Phone</h4>
-              <p className="mt-3 text-gray-300">+1 (416) 568-9192</p>
-            </div>
-
-            <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
-              <h4 className="text-xl font-semibold">Email</h4>
-              <p className="mt-3 text-gray-300">
-                singhs1320@gmail.com
-              </p>
-            </div>
-
-            <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
-              <h4 className="text-xl font-semibold">Location</h4>
-              <p className="mt-3 text-gray-300">Brampton, Ontario, Canada</p>
-            </div>
-          </div>
 
           <form className="mt-14 bg-white text-black rounded-3xl p-8 shadow-2xl text-left">
             <div className="grid md:grid-cols-2 gap-6">
               <input
                 type="text"
                 placeholder="Full Name"
-                className="border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-500"
+                className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
               />
 
               <input
                 type="email"
                 placeholder="Email Address"
-                className="border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-500"
+                className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
               />
             </div>
 
             <textarea
               placeholder="Tell us about the property you're looking for..."
               rows={5}
-              className="w-full mt-6 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-500"
+              className="w-full mt-6 border border-gray-300 rounded-xl px-4 py-3 outline-none"
             ></textarea>
 
             <button
@@ -233,7 +201,6 @@ export default function SurinderSinghRajputRealEstate() {
         </div>
       </section>
 
-      {/* Footer */}
       <footer className="bg-gray-950 text-gray-400 py-6 text-center text-sm">
         © 2026 Surinder Singh Rajput Real Estate. All rights reserved.
       </footer>
