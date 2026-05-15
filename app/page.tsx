@@ -252,6 +252,36 @@ export default function SurinderSingputRealEstate() {
         </div>
       </section>
 
+      <section className="py-20 bg-gray-100">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-black">
+              Admin Dashboard
+            </h3>
+            <p className="text-gray-600 mt-4 text-lg">
+              Manage property listings and client inquiries.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
+              <h4 className="text-5xl font-bold text-yellow-600">24</h4>
+              <p className="mt-4 text-gray-600 text-lg">Active Listings</p>
+            </div>
+
+            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
+              <h4 className="text-5xl font-bold text-yellow-600">12</h4>
+              <p className="mt-4 text-gray-600 text-lg">New Leads</p>
+            </div>
+
+            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
+              <h4 className="text-5xl font-bold text-yellow-600">8</h4>
+              <p className="mt-4 text-gray-600 text-lg">Properties Sold</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-gray-950 text-gray-400 py-6 text-center text-sm">
         © 2026 Surinder Singh Rajput Real Estate. All rights reserved.
       </footer>
