@@ -186,13 +186,13 @@ export default function SurinderSinghRajputRealEstate() {
           <div className="mt-10 grid md:grid-cols-3 gap-6">
             <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
               <h4 className="text-xl font-semibold">Phone</h4>
-              <p className="mt-3 text-gray-300">+1 (647) 000-0000</p>
+              <p className="mt-3 text-gray-300">+1 (416) 568-9192</p>
             </div>
 
             <div className="bg-gray-900 p-6 rounded-2xl shadow-lg">
               <h4 className="text-xl font-semibold">Email</h4>
               <p className="mt-3 text-gray-300">
-                info@surindersinghrealestate.com
+                singhs1320@gmail.com
               </p>
             </div>
 
