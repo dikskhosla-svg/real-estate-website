@@ -166,6 +166,57 @@ export default function SurinderSingputRealEstate() {
         </div>
       </section>
 
+      <section className="py-20 bg-yellow-50">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h3 className="text-4xl font-bold text-black">
+              Property Upload System
+            </h3>
+            <p className="text-gray-600 mt-4 text-lg">
+              Add new property details easily.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-3xl shadow-2xl p-8 grid md:grid-cols-2 gap-6">
+            <input
+              type="text"
+              placeholder="Property Title"
+              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
+            />
+
+            <input
+              type="text"
+              placeholder="Property Location"
+              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
+            />
+
+            <input
+              type="text"
+              placeholder="Property Price"
+              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
+            />
+
+            <input
+              type="text"
+              placeholder="Image URL"
+              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
+            />
+
+            <textarea
+              placeholder="Property Description"
+              rows={5}
+              className="md:col-span-2 border border-gray-300 rounded-xl px-4 py-3 outline-none"
+            ></textarea>
+
+            <button
+              className="bg-black text-white px-8 py-4 rounded-2xl hover:bg-gray-800 transition md:col-span-2"
+            >
+              Upload Property
+            </button>
+          </div>
+        </div>
+      </section>
+
       <section id="contact" className="py-20 bg-black text-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h3 className="text-4xl font-bold">Get In Touch</h3>
