@@ -219,7 +219,7 @@ export default function SurinderSinghRajputRealEstate() {
 
             <textarea
               placeholder="Tell us about the property you're looking for..."
-              rows="5"
+              rows={5}
               className="w-full mt-6 border border-gray-300 rounded-xl px-4 py-3 outline-none focus:ring-2 focus:ring-yellow-500"
             ></textarea>
 
