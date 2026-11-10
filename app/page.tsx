@@ -1,290 +1,89 @@
-export default function SurinderSingputRealEstate() {
-  const featuredProperties = [
-    {
-      title: "Luxury Family Home",
-      location: "Brampton, Ontario",
-      price: "$1,249,000",
-      image:
-        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?q=80&w=1200&auto=format&fit=crop",
-    },
-    {
-      title: "Modern Downtown Condo",
-      location: "Mississauga, Ontario",
-      price: "$799,000",
-      image:
-        "https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop",
-    },
-    {
-      title: "Elegant Detached House",
-      location: "Toronto, Ontario",
-      price: "$1,599,000",
-      image:
-        "https://images.unsplash.com/photo-1570129477492-45c003edd2be?q=80&w=1200&auto=format&fit=crop",
-    },
-  ];
+"use client";
 
+import { useMemo, useState } from "react";
+
+type Plan = { name: string; area: string; floors: number; category: string; setting: string; units: string; description: string };
+const plans: Plan[] = [
+  { name: "Laguna A", area: "1,964.07", floors: 4, category: "Corner Collection", setting: "Pond-facing", units: "G8 · E8 · C8", description: "A four-storey corner residence with generous living spaces and a distinctive pond-facing position." },
+  { name: "Laguna B", area: "1,382.89", floors: 3, category: "Corner Collection", setting: "Pond-facing", units: "G7 · E7 · C7", description: "A beautifully considered three-storey corner layout with inviting living and entertaining spaces." },
+  { name: "Brighton A", area: "1,971.36", floors: 4, category: "Corner Collection", setting: "School-facing", units: "H16 · F16 · D16", description: "A spacious four-storey corner layout with an attractive school-facing orientation." },
+  { name: "Brighton B", area: "1,403.05", floors: 3, category: "Corner Collection", setting: "School-facing", units: "H1 · F1 · D1", description: "A thoughtfully arranged three-storey corner home with an efficient open living level." },
+  { name: "Crown A", area: "1,971.36", floors: 4, category: "Signature Collection", setting: "End unit", units: "H9 · F9 · D9 · G14 · E14 · C14", description: "A four-storey end-unit design with a generous main living floor and additional upper-level flexibility." },
+  { name: "Crown B", area: "1,403.05", floors: 3, category: "Signature Collection", setting: "End unit", units: "H8 · F8 · D8 · G1 · E1 · C1", description: "A three-storey end-unit design with a welcoming open-concept living level." },
+  { name: "Haven", area: "1,325.14", floors: 3, category: "Signature Collection", setting: "Interior unit", units: "C2–C6 · E2–E6 · G2–G6 · D2–D7 · F2–F7 · H2–H7", description: "A refined three-storey interior home designed around everyday comfort and practical space." },
+  { name: "Everwood", area: "1,861.24", floors: 4, category: "Signature Collection", setting: "Interior unit", units: "C9–C13 · E9–E13 · G9–G13 · D10–D15 · F10–F15 · H10–H15", description: "A flexible four-storey interior layout featuring additional upper-level living possibilities." },
+];
+
+function PlanArtwork({ index }: { index: number }) {
+  const shift = index % 3;
   return (
-    <div className="min-h-screen bg-white text-gray-800 font-sans">
-      <header className="bg-gradient-to-r from-black to-gray-900 text-white shadow-lg sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
-          <div className="flex items-center gap-5">
-            <img
-              src="/logo.png"
-              alt="Logo"
-              className="w-32 h-32 object-contain"
-            />
+    <div className="relative mx-auto flex h-52 w-full max-w-72 items-center justify-center overflow-hidden" aria-label="Decorative architectural illustration, not a measured floor plan">
+      <div className="absolute inset-0 opacity-30" style={{backgroundImage:"linear-gradient(#d8cbb5 1px, transparent 1px), linear-gradient(90deg,#d8cbb5 1px, transparent 1px)",backgroundSize:"22px 22px"}} />
+      <div className="relative h-40 w-32 rotate-[-7deg] border-[5px] border-[#283b35] bg-[#fdfaf3] shadow-[12px_14px_0_#c8b896]">
+        <div className="absolute left-0 top-0 h-16 w-[55%] border-b-[4px] border-r-[4px] border-[#283b35]" />
+        <div className="absolute right-0 top-0 h-10 w-[45%] border-b-[4px] border-[#283b35]" />
+        <div className="absolute bottom-0 left-0 h-16 w-[42%] border-r-[4px] border-t-[4px] border-[#283b35]" />
+        <div className="absolute bottom-0 right-0 h-20 w-[58%] border-t-[4px] border-[#283b35]" />
+        <div className="absolute left-[55%] top-16 h-12 border-l-[4px] border-[#283b35]" />
+        <div className="absolute right-3 top-12 h-5 w-5 rounded-full border-2 border-[#b8a47b]" />
+        <div className="absolute bottom-6 right-4 h-6 w-10 border-2 border-[#b8a47b]" />
+        <div className="absolute left-3 top-20 h-8 w-7 border-2 border-[#b8a47b]" />
+        <div className="absolute left-0 top-[${shift * 12 + 72}px] h-5 w-[3px] bg-[#b8a47b]" />
+      </div>
+      <span className="absolute bottom-0 right-1 text-[10px] uppercase tracking-[.18em] text-[#847960]">Concept illustration</span>
+    </div>
+  );
+}
 
-            <div>
-              <h1 className="text-2xl md:text-4xl font-bold tracking-wide text-white">
-                Surinder Singh Rajput Real Estate
-              </h1>
-
-              <p className="text-sm text-gray-300 mt-1">
-                Trusted Real Estate Services Across Ontario
-              </p>
-            </div>
-          </div>
-
-          <nav className="hidden md:flex gap-8 text-sm font-medium">
-            <a href="#home" className="hover:text-yellow-400 transition">
-              Home
-            </a>
-            <a href="#properties" className="hover:text-yellow-400 transition">
-              Properties
-            </a>
-            <a href="#about" className="hover:text-yellow-400 transition">
-              About
-            </a>
-            <a href="#contact" className="hover:text-yellow-400 transition">
-              Contact
-            </a>
-          </nav>
+export default function SurinderSinghRajputRealEstate() {
+  const [filter, setFilter] = useState("All homes");
+  const [selected, setSelected] = useState<Plan | null>(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const visible = useMemo(() => plans.filter(p => filter === "All homes" || (filter === "3 storeys" ? p.floors === 3 : filter === "4 storeys" ? p.floors === 4 : p.category === filter)), [filter]);
+  const filters = ["All homes", "3 storeys", "4 storeys", "Corner Collection", "Signature Collection"];
+  return (
+    <main className="min-h-screen bg-[#f8f5ee] text-[#20342e]">
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#17342e] text-white shadow-lg">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 md:px-8">
+          <a href="#home" className="flex items-center gap-3"><span className="flex h-11 w-11 items-center justify-center rounded-full border border-[#c8ad77] font-serif text-xl text-[#d8c392]">SR</span><span className="text-sm font-semibold tracking-[.12em] md:text-base">SURINDER SINGH RAJPUT<span className="block text-[10px] font-normal tracking-[.3em] text-[#d8c392]">REAL ESTATE</span></span></a>
+          <nav className="hidden items-center gap-8 text-sm md:flex"><a href="#collection" className="hover:text-[#e0c68f]">Floor Plans</a><a href="#experience" className="hover:text-[#e0c68f]">Our Approach</a><a href="#contact" className="rounded-full border border-[#c8ad77] px-5 py-2 hover:bg-[#c8ad77] hover:text-[#17342e]">Get in Touch</a></nav>
+          <button type="button" className="rounded-lg border border-white/30 px-3 py-2 text-sm md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-expanded={menuOpen}>Menu</button>
         </div>
+        {menuOpen && <nav className="flex flex-col gap-3 border-t border-white/10 px-6 py-4 text-sm md:hidden"><a href="#collection" onClick={() => setMenuOpen(false)}>Floor Plans</a><a href="#experience" onClick={() => setMenuOpen(false)}>Our Approach</a><a href="#contact" onClick={() => setMenuOpen(false)}>Get in Touch</a></nav>}
       </header>
 
-      <section
-        id="home"
-        className="relative h-[85vh] flex items-center justify-center text-center"
-        style={{
-          backgroundImage:
-            "url('https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=1600&auto=format&fit=crop')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
-      >
-        <div className="absolute inset-0 bg-black/60"></div>
-
-        <div className="relative z-10 px-6 max-w-3xl">
-          <h2 className="text-4xl md:text-6xl font-extrabold text-white leading-tight">
-            Find Your Dream Home Today
-          </h2>
-
-          <p className="mt-6 text-lg md:text-xl text-gray-200">
-            Buy, sell, and invest in premium properties with confidence.
-          </p>
-
-          <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a
-              href="#properties"
-              className="bg-yellow-500 hover:bg-yellow-400 text-black font-semibold px-8 py-4 rounded-2xl shadow-xl transition"
-            >
-              Explore Properties
-            </a>
-
-            <a
-              href="#contact"
-              className="border border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-2xl transition"
-            >
-              Contact Agent
-            </a>
-          </div>
+      <section id="home" className="relative flex min-h-[650px] items-center overflow-hidden bg-[#17342e] text-white">
+        <div className="absolute inset-0 bg-cover bg-center opacity-35" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1800&q=85')"}} />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#102720] via-[#102720]/85 to-transparent" />
+        <div className="relative mx-auto w-full max-w-7xl px-6 py-24 md:px-10">
+          <p className="mb-6 text-xs font-semibold uppercase tracking-[.4em] text-[#e0c68f]">An elevated way to find home</p>
+          <h1 className="max-w-3xl font-serif text-5xl leading-[1.08] md:text-7xl">A home as <em className="font-normal text-[#e0c68f]">individual</em> as you are.</h1>
+          <p className="mt-7 max-w-xl text-lg leading-relaxed text-[#e9e9df]">Explore beautifully considered floor plans and discover the space that fits your next chapter.</p>
+          <a href="#collection" className="mt-9 inline-flex rounded-full bg-[#d6bd87] px-8 py-4 text-sm font-bold tracking-wide text-[#17342e] transition hover:bg-white">Explore the Collection <span className="ml-3">↗</span></a>
+          <p className="mt-12 text-xs uppercase tracking-[.22em] text-[#d6bd87]">Thoughtful spaces · Timeless possibilities</p>
         </div>
       </section>
 
-      <section id="properties" className="py-20 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-14">
-            <h3 className="text-4xl font-bold">Featured Properties</h3>
-            <p className="text-gray-600 mt-4 text-lg">
-              Explore handpicked listings in the best locations.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {featuredProperties.map((property, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300"
-              >
-                <img
-                  src={property.image}
-                  alt={property.title}
-                  className="h-64 w-full object-cover"
-                />
-
-                <div className="p-6">
-                  <h4 className="text-2xl font-bold">{property.title}</h4>
-                  <p className="text-gray-500 mt-2">{property.location}</p>
-
-                  <div className="mt-5 flex items-center justify-between">
-                    <span className="text-yellow-600 text-2xl font-bold">
-                      {property.price}
-                    </span>
-
-                    <button className="bg-black text-white px-5 py-2 rounded-xl hover:bg-gray-800 transition">
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+      <section id="collection" className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28">
+        <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div><p className="text-xs font-bold uppercase tracking-[.35em] text-[#9a8052]">The residence collection</p><h2 className="mt-4 font-serif text-4xl md:text-6xl">Find your perfect <em>fit.</em></h2><p className="mt-4 max-w-2xl text-[#66736d]">Eight distinct floor-plan styles. Explore by layout, level and lifestyle. Sizes and unit designations are based on the supplied architectural reference.</p></div>
+          <span className="w-fit rounded-full border border-[#c8b99c] px-5 py-2 text-xs uppercase tracking-[.2em]">08 curated designs</span>
         </div>
+        <div className="mt-10 flex flex-wrap gap-2" aria-label="Filter floor plans">{filters.map(f => <button key={f} type="button" onClick={() => setFilter(f)} aria-pressed={filter===f} className={`rounded-full border px-4 py-2.5 text-xs font-medium transition ${filter===f?"border-[#17342e] bg-[#17342e] text-white":"border-[#cfc8b8] bg-white text-[#34473f] hover:border-[#17342e]"}`}>{f}</button>)}</div>
+        <div className="mt-9 grid gap-7 md:grid-cols-2 xl:grid-cols-3">{visible.map((p) => <article key={p.name} className="group overflow-hidden rounded-[26px] border border-[#e8e1d4] bg-white shadow-[0_14px_50px_rgba(30,49,40,.06)] transition hover:-translate-y-1 hover:shadow-xl">
+          <div className="relative bg-[#eae7db] px-8 pb-5 pt-9"><div className="absolute left-6 top-5 rounded-full bg-white/90 px-3 py-1 text-[10px] font-bold uppercase tracking-widest text-[#53655a]">{p.category}</div><PlanArtwork index={plans.indexOf(p)} /></div>
+          <div className="p-7"><div className="flex items-start justify-between gap-3"><div><p className="text-[11px] uppercase tracking-[.2em] text-[#9a8052]">{p.setting}</p><h3 className="mt-2 font-serif text-3xl">{p.name}</h3></div><span className="rounded-full bg-[#f1eee5] px-3 py-2 text-xs">{p.floors} storeys</span></div>
+          <div className="mt-6 flex items-end justify-between border-t border-[#e9e3d7] pt-5"><div><span className="block font-serif text-3xl">{p.area}</span><span className="text-xs uppercase tracking-widest text-[#7d887f]">Square feet</span></div><button type="button" onClick={() => setSelected(p)} className="rounded-full bg-[#17342e] px-5 py-3 text-sm font-medium text-white hover:bg-[#365c4b]">Explore plan ↗</button></div></div>
+        </article>)}</div>
+        <p className="mt-8 text-xs leading-relaxed text-[#79847b]">Architectural illustrations on this page are decorative previews, not scaled plans. Refer to the original builder floor-plan PDF for exact dimensions, room arrangements and specifications. Availability and details must be confirmed.</p>
       </section>
 
-      <section id="about" className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
-          <div>
-            <img
-              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?q=80&w=1200&auto=format&fit=crop"
-              alt="Real Estate"
-              className="rounded-3xl shadow-2xl"
-            />
-          </div>
+      <section id="experience" className="bg-[#e9e6dc] px-6 py-20 md:py-28"><div className="mx-auto grid max-w-6xl gap-12 md:grid-cols-2 md:items-center"><div><p className="text-xs font-bold uppercase tracking-[.3em] text-[#9a8052]">Beyond the floor plan</p><h2 className="mt-5 font-serif text-4xl leading-tight md:text-5xl">Every great move starts with a conversation.</h2><p className="mt-6 leading-8 text-[#647268]">Whether you are comparing layouts, planning your next move, or exploring opportunities in Ontario, Surinder Singh Rajput Real Estate is here to help you navigate your options with care.</p><a href="#contact" className="mt-7 inline-block border-b-2 border-[#a18a5c] pb-2 font-semibold">Start a conversation ↗</a></div><div className="min-h-80 rounded-[30px] bg-cover bg-center shadow-2xl" style={{backgroundImage:"url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1100&q=85')"}} role="img" aria-label="Elegant modern interior" /></div></section>
 
-          <div>
-            <h3 className="text-4xl font-bold mb-6">
-              Your Trusted Real Estate Partner
-            </h3>
+      <section id="contact" className="bg-[#17342e] px-6 py-20 text-center text-white md:py-28"><p className="text-xs font-bold uppercase tracking-[.35em] text-[#d6bd87]">Your next chapter</p><h2 className="mx-auto mt-5 max-w-3xl font-serif text-4xl md:text-6xl">Let's find a place you'll love coming home to.</h2><p className="mx-auto mt-6 max-w-xl leading-7 text-[#d8e0d8]">Interested in a particular design? Contact Surinder Singh Rajput Real Estate for original plans, current availability and next steps.</p><p className="mt-8 text-sm text-[#d6bd87]">Contact information and a working inquiry channel will be added once verified.</p></section>
+      <footer className="flex flex-col justify-between gap-3 bg-[#10251f] px-6 py-7 text-xs text-[#b8c2b9] md:flex-row md:px-12"><span>© 2026 Surinder Singh Rajput Real Estate</span><span>Designed with intention. Built for what's next.</span></footer>
 
-            <p className="text-lg text-gray-600 leading-relaxed">
-              Surinder Singh Rajput Real Estate helps families and investors
-              discover premium homes and smart property opportunities across
-              Ontario.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-20 bg-yellow-50">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-black">
-              Property Upload System
-            </h3>
-            <p className="text-gray-600 mt-4 text-lg">
-              Add new property details easily.
-            </p>
-          </div>
-
-          <div className="bg-white rounded-3xl shadow-2xl p-8 grid md:grid-cols-2 gap-6">
-            <input
-              type="text"
-              placeholder="Property Title"
-              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            />
-
-            <input
-              type="text"
-              placeholder="Property Location"
-              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            />
-
-            <input
-              type="text"
-              placeholder="Property Price"
-              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            />
-
-            <input
-              type="text"
-              placeholder="Image URL"
-              className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            />
-
-            <textarea
-              placeholder="Property Description"
-              rows={5}
-              className="md:col-span-2 border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            ></textarea>
-
-            <button
-              className="bg-black text-white px-8 py-4 rounded-2xl hover:bg-gray-800 transition md:col-span-2"
-            >
-              Upload Property
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section id="contact" className="py-20 bg-black text-white">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h3 className="text-4xl font-bold">Get In Touch</h3>
-
-          <form className="mt-14 bg-white text-black rounded-3xl p-8 shadow-2xl text-left">
-            <div className="grid md:grid-cols-2 gap-6">
-              <input
-                type="text"
-                placeholder="Full Name"
-                className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-              />
-
-              <input
-                type="email"
-                placeholder="Email Address"
-                className="border border-gray-300 rounded-xl px-4 py-3 outline-none"
-              />
-            </div>
-
-            <textarea
-              placeholder="Tell us about the property you're looking for..."
-              rows={5}
-              className="w-full mt-6 border border-gray-300 rounded-xl px-4 py-3 outline-none"
-            ></textarea>
-
-            <button
-              type="submit"
-              className="mt-6 bg-black text-white px-8 py-4 rounded-2xl hover:bg-gray-800 transition"
-            >
-              Send Inquiry
-            </button>
-          </form>
-        </div>
-      </section>
-
-      <section className="py-20 bg-gray-100">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h3 className="text-4xl font-bold text-black">
-              Admin Dashboard
-            </h3>
-            <p className="text-gray-600 mt-4 text-lg">
-              Manage property listings and client inquiries.
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
-              <h4 className="text-5xl font-bold text-yellow-600">24</h4>
-              <p className="mt-4 text-gray-600 text-lg">Active Listings</p>
-            </div>
-
-            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
-              <h4 className="text-5xl font-bold text-yellow-600">12</h4>
-              <p className="mt-4 text-gray-600 text-lg">New Leads</p>
-            </div>
-
-            <div className="bg-white rounded-3xl shadow-xl p-8 text-center">
-              <h4 className="text-5xl font-bold text-yellow-600">8</h4>
-              <p className="mt-4 text-gray-600 text-lg">Properties Sold</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <footer className="bg-gray-950 text-gray-400 py-6 text-center text-sm">
-        © 2026 Surinder Singh Rajput Real Estate. All rights reserved.
-      </footer>
-    </div>
+      {selected && <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#0a1d17]/80 p-4" onClick={() => setSelected(null)}><div role="dialog" aria-modal="true" aria-label={selected.name+" details"} className="max-h-[90vh] w-full max-w-xl overflow-y-auto rounded-[28px] bg-[#f8f5ee] p-7 text-[#20342e] shadow-2xl md:p-10" onClick={e => e.stopPropagation()}><div className="flex items-start justify-between gap-4"><div><p className="text-xs uppercase tracking-[.2em] text-[#987c4f]">{selected.category}</p><h3 className="mt-2 font-serif text-4xl">{selected.name}</h3></div><button type="button" onClick={() => setSelected(null)} className="rounded-full border border-[#bcb7a8] px-4 py-2 text-sm" aria-label="Close details">✕</button></div><div className="my-7 rounded-2xl bg-[#eae7db] p-5"><PlanArtwork index={plans.indexOf(selected)} /></div><div className="grid grid-cols-2 gap-4 border-y border-[#d9d3c5] py-5"><div><p className="text-xs uppercase tracking-widest text-[#748176]">Area</p><p className="mt-1 font-serif text-2xl">{selected.area} sq ft</p></div><div><p className="text-xs uppercase tracking-widest text-[#748176]">Levels</p><p className="mt-1 font-serif text-2xl">{selected.floors} storeys</p></div><div><p className="text-xs uppercase tracking-widest text-[#748176]">Position</p><p className="mt-1">{selected.setting}</p></div><div><p className="text-xs uppercase tracking-widest text-[#748176]">Unit numbers</p><p className="mt-1 text-sm">{selected.units}</p></div></div><p className="mt-6 leading-7 text-[#66736d]">{selected.description}</p><p className="mt-5 text-xs text-[#66736d]">The image is illustrative only. Request the original builder floor plan to review exact room dimensions and layout.</p><button type="button" onClick={() => setSelected(null)} className="mt-7 w-full rounded-full bg-[#17342e] px-6 py-4 font-semibold text-white">Back to collection</button></div></div>}
+    </main>
   );
 }
